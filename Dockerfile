@@ -1,13 +1,8 @@
-FROM golang:alpine
-
-WORKDIR $GOPATH/src/gin_docker
-
-ADD . ./
-
-ENV GO111MODULE=on
-ENV GOPROXY="https://goproxy.io"
-
-RUN go build -o gin_docker .
-EXPOSE 8080
-
-ENTRYPOINT  ["./gin_docker"]
+FROM golang:1.14 as build
+WORKDIR /go/src/app
+COPY . .
+RUN go build -v -o /app .
+# Now copy it into our base image.
+FROM gcr.io/distroless/base
+COPY --from=build /app /app
+CMD ["/app"]
