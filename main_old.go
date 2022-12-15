@@ -14,7 +14,7 @@ type album struct {
 }
 
 var albums = []album{
-	{ID: "1", Title: "blue Train", Artist: "John Coltrane", Price: 58.73},
+	{ID: "1", Title: "Red Train", Artist: "John Coltrane", Price: 58.73},
 	{ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 60.73},
 	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 73.73},
 }
